@@ -1,2 +1,21 @@
-<h1>Patients#new</h1>
-<p>Find me in app/views/patients/new.html.erb</p>
+<h1>Add Patient</h1>
+<hr />
+<%= form_with(model: @patient, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required: true, autofocus: true, placeholder: "First Name" %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, required: true, placeholder: "Last Name" %>
+  </div>
+  <div class="field">
+    <%= f.label :age %>
+    <%= f.number_field :age, required: true, placeholder: "Age", min: 0, max: 110 %>
+  </div>
+  <div class="field">
+    <%= f.label :dob %>
+    <%= f.date_field :dob, required: true, placeholder: "D.O.B." %>
+  </div>
+  <%= f.submit nil, class: "ui green button inverted" %>
+<% end %>

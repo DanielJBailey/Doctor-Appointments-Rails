@@ -5,7 +5,6 @@ class DoctorsController < ApplicationController
   end
 
   def show
-    # render set doctor
   end
 
   def new

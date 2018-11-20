@@ -1,2 +1,11 @@
-<h1>Patients#index</h1>
-<p>Find me in app/views/patients/index.html.erb</p>
+<h1>Patients</h1>
+<%= link_to 'Add Patient', new_patient_path %>
+<hr />
+
+<ul>
+    <% @patients.each do |patient| %>
+        <li>
+            <%= link_to patient.full_name, patient_path(patient) %>
+        </li>
+    <% end %>
+</ul>

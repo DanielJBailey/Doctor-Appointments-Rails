@@ -1,0 +1,18 @@
+@import 'semantic-ui';
+@import 'doctors';
+@import 'patients';
+
+.container {
+    padding: 100px 0;
+
+    .patient-title {
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .user-info {
+        width: 50%;
+        margin: 0 auto;
+        
+    }
+}

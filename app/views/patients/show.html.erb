@@ -1,2 +1,44 @@
-<h1>Patients#show</h1>
-<p>Find me in app/views/patients/show.html.erb</p>
+<h1><%= @patient.full_name%></h1>
+<h3 class="patient-title">Patient Information</h3>
+<table class="ui definition table user-info">
+<tr>
+    <td>
+        First Name:
+    </td>
+    <td>
+        <%= @patient.first_name %>
+    </td>
+</tr>
+<tr>
+    <td>
+        Last Name:
+    </td>
+    <td>
+        <%= @patient.last_name %>
+    </td>
+</tr>
+<tr>
+    <td>
+        Age:
+    </td>
+    <td>
+        <%= @patient.age %>
+    </td>
+</tr>
+<tr>
+    <td>
+        Date of Birth:
+    </td>
+    <td>
+        <%= @patient.dob.strftime('%m / %d / %Y') %>
+    </td>
+</tr>
+<tr>
+    <td>
+        Remove Patient:
+    </td>
+    <td>
+        <%= link_to 'Delete', @patient, method: :delete, class: "ui red button" %>
+    </td>
+</tr>
+</table>
