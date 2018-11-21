@@ -10,11 +10,7 @@
     <%= f.text_field :last_name, required: true, placeholder: "Last Name" %>
   </div>
   <div class="field">
-    <%= f.label :age %>
-    <%= f.number_field :age, required: true, placeholder: "Age", min: 0, max: 110 %>
-  </div>
-  <div class="field">
-    <%= f.label :dob %>
+    <%= f.label "Date of Birth" %>
     <%= f.date_field :dob, required: true, placeholder: "D.O.B." %>
   </div>
   <%= f.submit nil, class: "ui green button inverted" %>
