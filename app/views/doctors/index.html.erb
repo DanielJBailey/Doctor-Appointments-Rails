@@ -1,12 +1,32 @@
-<h1>Doctors</h1>
-<%= link_to 'Add Doctor', new_doctor_path %>
+<h1>Intermountain Healthcare Doctors</h1>
+<%= link_to 'Add Doctor', new_doctor_path, class: "ui button blue inverted" %>
+<br />
+<br />
 <hr />
 
-<ul>
+
+<table class="ui celled table">
+  <thead>
+    <th>Doctor Name</th>
+    <th>Specialty</th>
+    <th>Education</th>
+    <th>Phone</th>
+    <th>Appointments</th>
+    <th>Remove</th>
+  </thead>
+  <tbody>
     <% @doctors.each do |doctor| %>
-        <li>
-            <%= link_to doctor.name, doctor_path(doctor) %>
-        </li>
+      <tr>
+        <td><%= link_to doctor.name, doctor_path(doctor) %></td>
+        <td><%= doctor.specialty %></td>
+        <td><%= doctor.school %></td>
+        <td><%= doctor.phone %></td>
+        <td><%= doctor.appointments.count %></td>
+        <td><%= link_to 'Remove', doctor_path(doctor), method: :delete, class:"ui button red inverted" %></td>
+      </tr>
     <% end %>
-</ul>
+  </tbody>
+
+</table>
+
 
