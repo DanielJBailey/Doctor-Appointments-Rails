@@ -1,5 +1,7 @@
 <h1><%= @doctor.name %>, M.D. Appointments</h1>
 <%= link_to 'Add Appointment', new_doctor_appointment_path(@doctor), class:"ui button blue inverted" %>
+<br />
+<br />
 <hr />
 
 
@@ -13,9 +15,9 @@
     <th>Remove</th>
   </thead>
   <tbody>
-    <% @doctor.appointments.each do |appt|%>
+    <% @appointments.each do |appt| %>
       <tr>
-        <td><%= appt.patient.full_name %></td>
+        <td><%= link_to appt.patient.full_name, patient_path(appt.patient), class: "ui basic button"%></td>
         <td><%= appt.patient.age %></td>
         <td><%= appt.patient.dob %></td>
         <td><%= appt.date.strftime('%a, %b %d, %Y') %></td>
@@ -26,4 +28,6 @@
   </tbody>
 
 </table>
+
+
 

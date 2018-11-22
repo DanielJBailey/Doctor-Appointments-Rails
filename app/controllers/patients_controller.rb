@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @appointments = @patient.appointments\
+    @appointments = @patient.appointments
   end
 
   def new
