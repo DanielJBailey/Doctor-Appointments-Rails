@@ -23,7 +23,7 @@
         <td><%= appt.patient.dob %></td>
         <td><%= appt.date.strftime('%a, %b %d, %Y') %></td>
         <td><%= appt.time.strftime("%l:%M %p")  %></td>
-        <td><%= link_to 'Cancel', doctor_appointment_path(@doctor, appt), method: :delete, class:"ui button red inverted" %></td>
+        <td><%= button_to 'Cancel', doctor_appointment_path(appt.doctor_id, appt.id), method: :delete, class:"ui button red inverted" %></td>
       </tr>
     <% end %>
   </tbody>

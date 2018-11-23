@@ -1,11 +1,37 @@
-<h1>Patients</h1>
-<%= link_to 'Add Patient', new_patient_path %>
+<span class="doctor-show-header"><h1>Intermountain Healthcare Patient List</h1><h3>Number of Patients:  <%= @patients.count %></h3></span>
+<%= link_to 'Add Patient', new_patient_path, class:"ui button blue inverted"%>
+<br />
+<br />
 <hr />
 
-<ul>
+<table class="ui celled table selectable striped padded">
+  <thead>
+    <th class="center aligned">Patient Name</th>
+    <th class="center aligned">Age</th>
+    <th class="center aligned">Date of Birth</th>
+    <th class="center aligned">Sex</th>
+    <th class="center aligned">Phone</th>
+    <th class="center aligned">City</th>
+    <th class="center aligned">State</th>
+    <th class="center aligned">Zip</th>
+    <th class="center aligned">Preferred Language</th>
+    <th class="center aligned">Remove</th>
+  </thead>
+  <tbody>
     <% @patients.each do |patient| %>
-        <li>
-            <%= link_to patient.full_name, patient_path(patient) %>
-        </li>
+      <tr>
+        <td><%= link_to patient.full_name, patient_path(patient), class: "ui basic button" %></td>
+        <td><%= patient.age %></td>
+        <td><%= patient.dob.strftime('%m/%d/%Y') %></td>
+        <td><%= patient.sex == "Male" ? "M" : "F" %></td>
+        <td><%= patient.phone %></td>
+        <td><%= patient.city %></td>
+        <td><%= patient.state %></td>
+        <td><%= patient.zip %></td>
+        <td><%= patient.language %></td>
+        <td><%= button_to 'Remove', {:controller => :patients, :action => 'destroy', :id => patient.id }, :method => :delete, class:"ui button red inverted" %></td>
+      </tr>
     <% end %>
-</ul>
+  </tbody>
+
+</table>

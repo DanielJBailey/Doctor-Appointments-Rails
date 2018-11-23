@@ -5,7 +5,7 @@ class PatientsController < ApplicationController
   end
 
   def show
-    @appointments = @patient.appointments
+    @appointments = @patient.appointments.order("date", "time")
   end
 
   def new
@@ -34,6 +34,6 @@ class PatientsController < ApplicationController
     end
 
     def patient_params
-      params.require(:patient).permit(:first_name, :last_name, :age, :dob)
+      params.require(:patient).permit(:first_name, :last_name, :age, :dob, :language, :sex, :phone, :street, :city, :state, :zip)
     end
 end

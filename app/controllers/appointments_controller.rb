@@ -39,7 +39,7 @@ class AppointmentsController < ApplicationController
     end
 
     def set_patients
-      @patients = Patient.all - @doctor.patients
+      @patients = (Patient.all.order("last_name") - @doctor.patients)
     end
 
     def appointment_params

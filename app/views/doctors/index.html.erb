@@ -1,28 +1,29 @@
-<h1>Intermountain Healthcare Doctors</h1>
+<span class="doctor-show-header"><h1>Intermountain Healthcare Doctor List</h1><h3>Number of Doctors: <%= @doctors.count %></h3></span>
+
 <%= link_to 'Add Doctor', new_doctor_path, class: "ui button blue inverted" %>
 <br />
 <br />
 <hr />
 
 
-<table class="ui celled table">
+<table class="ui selectable celled striped table padded">
   <thead>
-    <th>Doctor Name</th>
-    <th>Specialty</th>
-    <th>Education</th>
-    <th>Phone</th>
-    <th>Appointments</th>
-    <th>Remove</th>
+    <th class="center aligned">Doctor Name</th>
+    <th class="center aligned">Specialty</th>
+    <th class="center aligned">Education</th>
+    <th class="center aligned">Phone</th>
+    <th class="center aligned">Appointments</th>
+    <th class="center aligned">Remove</th>
   </thead>
   <tbody>
     <% @doctors.each do |doctor| %>
       <tr>
-        <td><%= link_to doctor.name, doctor_path(doctor) %></td>
+        <td><%= link_to doctor.name, doctor_appointments_path(doctor), class: "ui basic button" %></td>
         <td><%= doctor.specialty %></td>
         <td><%= doctor.school %></td>
         <td><%= doctor.phone %></td>
         <td><%= doctor.appointments.count %></td>
-        <td><%= link_to 'Remove', doctor_path(doctor), method: :delete, class:"ui button red inverted" %></td>
+        <td><%= button_to 'Remove', {:controller => :doctors, :action => 'destroy', :id => doctor.id }, :method => :delete, class:"ui button red inverted" %></td>
       </tr>
     <% end %>
   </tbody>

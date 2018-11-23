@@ -1,48 +1,85 @@
 <h1><%= @patient.full_name%></h1>
-<h3 class="patient-title">Patient Information</h3>
-<table class="ui definition table user-info">
+<h2 class="ui center aligned blue header">Patient Information</h2>
+<table class="ui definition table user-info selectable">
 <tr>
-    <td>
-        First Name:
-    </td>
-    <td>
-        <%= @patient.first_name %>
-    </td>
+    <td>First Name:</td>
+    <td><%= @patient.first_name %></td>
 </tr>
 <tr>
-    <td>
-        Last Name:
-    </td>
-    <td>
-        <%= @patient.last_name %>
-    </td>
+    <td>Last Name:</td>
+    <td><%= @patient.last_name %></td>
 </tr>
 <tr>
-    <td>
-        Age:
-    </td>
-    <td>
-        <%= @patient.age %>
-    </td>
+    <td>Age:</td>
+    <td><%= @patient.age %></td>
 </tr>
 <tr>
-    <td>
-        Date of Birth:
-    </td>
-    <td>
-        <%= @patient.dob.strftime('%m / %d / %Y') %>
-    </td>
+    <td>Date of Birth:</td>
+    <td><%= @patient.dob.strftime('%m / %d / %Y') %></td>
 </tr>
 <tr>
-    <td>
-        Remove Patient:
-    </td>
-    <td>
-        <%= link_to 'Delete', @patient, method: :delete, class: "ui red button" %>
-    </td>
+    <td>Sex:</td>
+    <td><%= @patient.sex %></td>
+</tr>
+<tr>
+    <td>Phone:</td>
+    <td><%= @patient.phone %></td>
+</tr>
+<tr>
+    <td>Street:</td>
+    <td><%= @patient.street %></td>
+</tr>
+<tr>
+    <td>City:</td>
+    <td><%= @patient.city %></td>
+</tr>
+<tr>
+    <td>State:</td>
+    <td><%= @patient.state %></td>
+</tr>
+<tr>
+    <td>Zip:</td>
+    <td><%= @patient.zip %></td>
+</tr>
+<tr>
+    <td>Preffered Language:</td>
+    <td><%= @patient.language %></td>
+</tr>
+<tr>
+    <td>Remove Patient:</td>
+    <td><%= button_to 'Delete', {:controller => :patients, :action => 'destroy', :id => @patient }, :method => :delete, class:"ui button red inverted" %></td>
 </tr>
 </table>
+<br />
+<br />
 
-<% @appointments.each do |appt| %>
-    appt
-<% end %>
+<h2 class="ui center aligned blue header"><%= @patient.full_name%> <%= @patient.last_name[-1] == 's' ? "'  Scheduled Appointments" : "\'s Scheduled Appointments"%></h2>
+
+    <table class="ui table striped selectable">
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Specialty</th>
+                <th>Doctor Phone</th>
+                <th>Date</th>
+                <th>Time</th></th>
+                <th>Cancel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @appointments.each_with_index do |appt,i| %>
+                <tr>
+                    <td><%= link_to appt.doctor.name, doctor_appointments_path(appt.doctor),class:"ui button basic" %></td>
+                    <td><%= appt.doctor.specialty %></td>
+                    <td><%= appt.doctor.phone %></td>
+                    <td><%= appt.date.strftime('%a, %b %d, %Y') %></td>
+                    <td><%= appt.time.strftime("%l:%M %p") %></td>
+                    <td><%= button_to 'Cancel', doctor_appointment_path(appt.doctor_id, appt.id), method: :delete, class:"ui button red inverted" %></td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
+
+
+
+

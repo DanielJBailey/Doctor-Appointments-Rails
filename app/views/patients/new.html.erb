@@ -13,5 +13,37 @@
     <%= f.label "Date of Birth" %>
     <%= f.date_field :dob, required: true, placeholder: "D.O.B." %>
   </div>
+  <div class="field">
+    <%= f.label :sex %>
+    <%= f.select :sex, ["Male", "Female"], required: true%>
+  </div> 
+  <div class="field">
+    <%= f.label :phone %>
+    <%= f.phone_field :phone, required: true, placeholder: "Phone"%>
+  </div>
+  <div class="field">
+    <%= f.label :street %>
+    <%= f.text_field :street, required: true, placeholder: "Street"%>
+  </div>
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city, required: true, placeholder: "City"%>
+  </div>
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.select :state, ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','UT','VT','VA','WA','WV','WI','WY'], required: true, placeholder: "State"%>
+  </div>
+  <div class="field">
+    <%= f.label :zip %>
+    <%= f.number_field :zip, required: true, placeholder: "Zip"%>
+  </div>
+  <div class="field">
+    <%= f.label :language %>
+    <%= f.select :language, ["English", "Chinese", "Spanish", "French", "Arabic", "Japanese", "Other" ],required: true, placeholder: "Preferred Language" %>
+  </div>
   <%= f.submit nil, class: "ui green button inverted" %>
 <% end %>
+
+
+
+
