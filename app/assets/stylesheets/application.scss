@@ -2,6 +2,53 @@
 @import 'doctors';
 @import 'patients';
 
+* {
+    box-sizing: border-box;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #39d;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3),2px 2px 10px rgba(0,0,0,0.1);
+
+    .nav-links {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        a {
+            padding: 20px;
+            color: white;
+            &:hover {
+                background-color: rgb(88, 172, 228);
+            }
+        }
+    }
+
+    .user-login {
+        padding: 20px 0 20px 20px;
+        color: #fff;
+        background-color: rgba(0, 0, 0, 0.87);
+
+        .logout {
+            padding: 20px;
+            color: #39d;
+            &:hover {
+                color: white;
+            }
+        }
+    }
+}
+
 .doctor-show-header {
     display: flex;
     justify-content: space-between;
@@ -18,7 +65,7 @@
     }
 }
 .container {
-    padding: 50px 0;
+    padding: 110px 0;
 
     .patient-title {
         text-align: center;

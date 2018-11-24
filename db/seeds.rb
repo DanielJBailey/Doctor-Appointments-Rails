@@ -1,4 +1,4 @@
-specialties = ["Heart", "ENT", "Dermatology", "Internal Medicine", "Digestive Health", "General Surgery", "Plastics"]
+specialties = ["Allergy & Immunology", "Anesthesiology", "Dermatology", "Diagnostic Radiology", "Emergency Medicine", "Family Medicine", "Internal Medicine", "Medical Genetics", "Neurology", "Nuclear Medicine", "Obstetrics and Gynecology", "Opthamology", "Pathology", "Pediatrics", "Physical Medicine & Rehabilation", "Preventice Medicine", "Psychiatry", "Radiation Oncology", "Surgery", "Urology"]
 languages = ["English", "English", "English","Chinese", "Spanish"]
 sex = ["Male", "Female"]
 
