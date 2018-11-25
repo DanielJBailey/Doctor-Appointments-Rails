@@ -81,5 +81,14 @@
     </table>
 
 
+<div class="notes-container">
+    <h2 class="ui center aligned blue header"><%= @patient.full_name%> <%= @patient.last_name[-1] == 's' ? "'  Doctor Notes" : "\'s Doctor Notes"%></h2>
+    <p><%= @notes.length <= 0 ? "No patient notes": ""%></p>
+    
+    <%= @notes  %>
+    <%= link_to "Add Note", new_patient_note_path(@patient), class:"ui button blue" %>
+</div>
+
+
 
 

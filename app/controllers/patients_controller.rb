@@ -6,6 +6,7 @@ class PatientsController < ApplicationController
 
   def show
     @appointments = @patient.appointments.order("date", "time")
+    @notes = @patient.notes.all.order("created_at")
   end
 
   def new

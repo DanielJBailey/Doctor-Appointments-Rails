@@ -8,10 +8,8 @@
         </div>
         <% if user_signed_in? %>
         <div class="user-login">
-            
-                <%= "Welcome #{current_user.first_name}" %>
-                <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"logout"%>
-            
+            <%= "Welcome #{current_user.full_name}" %>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"logout"%>
         </div>
         <% end %>
         

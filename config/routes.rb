@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :doctors do
     resources :appointments, only: [:index,:new, :create, :destroy]
   end
+
+  resources :patients do
+    resources :notes 
+  end
 end
