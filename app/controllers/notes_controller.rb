@@ -1,19 +1,17 @@
 class NotesController < ApplicationController
 
-  before_action :set_note, only: [:show, :edit, :update]
+  before_action :set_note, only: [:edit, :update, :destroy]
   before_action :set_patient
   
   def index
     @notes = @patient.notes.order("created_at")
   end
 
-  def show
-    @patient = @note.patient.find(params[:id])
-    @user = @note.user.find(params[:user_id])
-  end
-
   def new
     @note = @patient.notes.new
+  end
+
+  def show
   end
 
   def create

@@ -99,15 +99,17 @@
                 <%= link_to edit_patient_note_path(note.patient_id, note), :edit => 'go' do %>
                     <i class="edit outline icon"></i>
                 <% end %>
-                <i class="trash alternate icon trash"></i>
+                <%= button_to patient_note_path(note.patient, note), method: :delete do %>
+                    <i class="trash alternate icon trash"></i>
+                <% end %>
+                
             </div>
             
         </div>
     <% end %>
     <%= link_to "Add Note", new_patient_note_path(@patient), class:"ui button blue" %>
     
-</div>
-
+</div>  
 
 
 
