@@ -5,11 +5,11 @@
   <%= form_for(resource, as: resource_name, class:"ui form", url: session_path(resource_name)) do |f| %>
     <%= image_tag("logo.png", :alt => "Intermountain Logo",class:"logo") %>
     <div class="field">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input", placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"input", placeholder: "Email", required: true %>
     </div>
 
     <div class="field">
-      <%= f.password_field :password, autocomplete: "current-password", class:"input", placeholder: "Password"  %>
+      <%= f.password_field :password, autocomplete: "current-password", class:"input", placeholder: "Password", required: true  %>
     </div>
 
     <div class="actions">
