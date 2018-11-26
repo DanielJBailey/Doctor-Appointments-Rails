@@ -1,16 +1,17 @@
-<h2>Forgot your password?</h2>
+<div class="log-in-container">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, class: "ui form") do |f| %>
+  <%= image_tag("logo.png", :alt => "Intermountain Logo",class:"logo") %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", required: true, class:"input" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions", class: "submit" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+
+
