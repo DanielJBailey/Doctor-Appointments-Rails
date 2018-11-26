@@ -83,10 +83,29 @@
 
 <div class="notes-container">
     <h2 class="ui center aligned blue header"><%= @patient.full_name%> <%= @patient.last_name[-1] == 's' ? "'  Doctor Notes" : "\'s Doctor Notes"%></h2>
-    <p><%= @notes.length <= 0 ? "No patient notes": ""%></p>
+    <p><%= @notes.length <= 0 ? "No patient notes found": ""%></p>
     
-    <%= @notes  %>
+    <% @notes.each do |note|  %>
+        <div class="note">
+            <p class="message-body"><%= note.message %></p>
+            <div class="poster-info">
+                <%= note.user.full_name %>
+                <br />
+                <%= note.created_at.strftime("%b %d, %Y") %>
+                <br />
+                <%= note.created_at.in_time_zone("Central Time (US & Canada)").strftime("%l:%M %p") %>
+            </div>
+            <div class="note-actions">
+                <%= link_to edit_patient_note_path(note.patient_id, note), :edit => 'go' do %>
+                    <i class="edit outline icon"></i>
+                <% end %>
+                <i class="trash alternate icon trash"></i>
+            </div>
+            
+        </div>
+    <% end %>
     <%= link_to "Add Note", new_patient_note_path(@patient), class:"ui button blue" %>
+    
 </div>
 
 

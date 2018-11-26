@@ -1,8 +1,7 @@
 class NotesController < ApplicationController
 
-  before_action :set_note, only: [:show]
+  before_action :set_note, only: [:show, :edit, :update]
   before_action :set_patient
-  before_action :set_user, only: [:new, :create]
   
   def index
     @notes = @patient.notes.order("created_at")
@@ -19,10 +18,23 @@ class NotesController < ApplicationController
 
   def create
     @note = @patient.notes.new(note_params)
+    @note.update(user_id: current_user.id)
     if @note.save
       redirect_to @patient
     else
       render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    if @note.update(note_params)
+      redirect_to @patient
+    else
+      render :edit
     end
   end
 
@@ -31,11 +43,7 @@ class NotesController < ApplicationController
     redirect_to @patient
   end
 
-  private
-
-    def set_user
-      @user = current_user
-    end
+   private
 
     def set_note
       @note = Note.find(params[:id])
@@ -46,6 +54,7 @@ class NotesController < ApplicationController
     end
 
     def note_params
-      params.require(:note).permit(:message)
+      params.require(:note).permit(:message, :user_id)
     end
 end
+

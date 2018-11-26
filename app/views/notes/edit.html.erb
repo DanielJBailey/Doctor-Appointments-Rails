@@ -1,2 +1,8 @@
-<h1>Notes#edit</h1>
-<p>Find me in app/views/notes/edit.html.erb</p>
+<h1>Edit Note For <%= @patient.full_name %></h1>
+<%= form_with(model: [@patient,@note], local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :message %>
+    <%= f.text_area :message, required: true, placeholder: "Message", rows: 10%>
+  </div>
+  <%= f.submit nil, class: "ui blue button" %>
+<% end %>
