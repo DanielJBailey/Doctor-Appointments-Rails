@@ -1,11 +1,13 @@
 <nav>
     <div class="navigation">
+        <% if user_signed_in? %>
         <div class="nav-links">
             <%= link_to "Doctors", doctors_path %>
             <%= link_to 'Add Doctor', new_doctor_path %>
             <%= link_to 'Patients', patients_path %>
             <%= link_to 'Add Patient', new_patient_path %>
         </div>
+        <% end %>
         <% if user_signed_in? %>
         <div class="user-login">
             <%= "Welcome #{current_user.full_name}" %>
